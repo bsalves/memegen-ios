@@ -9,6 +9,8 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    //MARK: Outlets
 
     @IBOutlet weak var topText: UITextField!
     @IBOutlet weak var bottonText: UITextField!
@@ -16,11 +18,70 @@ class ViewController: UIViewController {
     @IBOutlet weak var topBar: UIToolbar!
     @IBOutlet weak var bottomBar: UIToolbar!
     
+    //MARK: Life cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
+        
+        topText.addTarget(self, action: #selector(self.unsubscribeFromKeyboardNotifications), for: UIControlEvents.editingDidBegin)
+        topText.addTarget(self, action: #selector(self.subscribeToKeyboardNotifications), for: UIControlEvents.editingDidEnd)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        subscribeToKeyboardNotifications()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        unsubscribeFromKeyboardNotifications()
+    }
+    
+    @objc func subscribeToKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: .UIKeyboardWillChangeFrame, object: nil)
+    }
+    
+    @objc func unsubscribeFromKeyboardNotifications() {
+        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillChangeFrame, object: nil)
+    }
+    
+    //MARK: Keybvoard listeners
+    
+    func keyboardWillShow(_ notification: Notification) {
+        if let userInfo = notification.userInfo {
+            let endFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
+            let endFrameY = endFrame?.origin.y ?? 0
+            let duration:TimeInterval = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0
+            let animationCurveRawNSN = userInfo[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber
+            let animationCurveRaw = animationCurveRawNSN?.uintValue ?? UIViewAnimationOptions.curveEaseInOut.rawValue
+            let animationCurve:UIViewAnimationOptions = UIViewAnimationOptions(rawValue: animationCurveRaw)
+            if endFrameY >= UIScreen.main.bounds.size.height {
+                view.frame.origin.y = 0
+            } else {
+                view.frame.origin.y -= getKeyboardHeight(notification)
+            }
+            UIView.animate(withDuration: duration,
+                           delay: TimeInterval(0),
+                           options: animationCurve,
+                           animations: { self.view.layoutIfNeeded() },
+                           completion: nil)
+        }
+    }
+    
+    func getKeyboardHeight(_ notification:Notification) -> CGFloat {
+        let userInfo = notification.userInfo
+        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue // of CGRect
+        return keyboardSize.cgRectValue.height
+    }
+    
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
+    //MARK: Meme controllers
     
     func generateMemedImage() -> UIImage {
         
@@ -46,6 +107,8 @@ class ViewController: UIViewController {
         topBar.isHidden = false
         bottomBar.isHidden = false
     }
+    
+    //MARK: Actions
     
     @IBAction func shot(_ sender: Any) {
         
@@ -89,7 +152,4 @@ class ViewController: UIViewController {
         bottonText.text = nil
     }
     
-    @objc func dismissKeyboard() {
-        view.endEditing(true)
-    }
 }

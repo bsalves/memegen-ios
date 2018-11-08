@@ -31,6 +31,9 @@ class MemeTextField: UITextField {
             NSForegroundColorAttributeName: UIColor(named: "TextColor") ?? "",
             NSFontAttributeName: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40) ?? "",
             NSStrokeWidthAttributeName: -4
-            ])
+        ])
+        
+        self.textAlignment = .center
+        
     }
 }
