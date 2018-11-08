@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,14 +15,14 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Meme" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mR1-Uj-oeX">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
                             </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="COV-Nm-kEv">
-                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="729" width="375" height="49"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="OPf-Cr-Xbu"/>
                                     <barButtonItem systemItem="camera" id="cRn-Xx-PiC">
@@ -40,7 +40,7 @@
                                 </items>
                             </toolbar>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FEE-Cy-jDl">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                                 <items>
                                     <barButtonItem systemItem="action" id="wdq-3y-MsX">
                                         <connections>
@@ -56,13 +56,13 @@
                                 </items>
                             </toolbar>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="TOP" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aWB-T4-6FU" customClass="MemeTextField" customModule="Meme" customModuleProvider="target">
-                                <rect key="frame" x="20" y="84" width="335" height="36"/>
+                                <rect key="frame" x="20" y="108" width="335" height="36"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="BOTTOM" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f8z-74-6xO" customClass="MemeTextField" customModule="Meme" customModuleProvider="target">
-                                <rect key="frame" x="20" y="567" width="335" height="36"/>
+                                <rect key="frame" x="20" y="673" width="335" height="36"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -74,7 +74,7 @@
                             <constraint firstItem="FEE-Cy-jDl" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="IVX-nr-Hjf"/>
                             <constraint firstItem="mR1-Uj-oeX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="IXo-sf-7gw"/>
                             <constraint firstItem="FEE-Cy-jDl" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Inz-p2-1Sy"/>
-                            <constraint firstItem="COV-Nm-kEv" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottom" id="K55-9D-QXm"/>
+                            <constraint firstItem="COV-Nm-kEv" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="K55-9D-QXm"/>
                             <constraint firstItem="COV-Nm-kEv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="VkO-GD-oTd"/>
                             <constraint firstItem="COV-Nm-kEv" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="asn-IS-Sdl"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="f8z-74-6xO" secondAttribute="trailing" constant="20" id="hWB-JC-hZW"/>
@@ -82,7 +82,7 @@
                             <constraint firstItem="aWB-T4-6FU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="kqh-0Y-rDz"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aWB-T4-6FU" secondAttribute="trailing" constant="20" id="ngx-HA-jro"/>
                             <constraint firstItem="mR1-Uj-oeX" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="s1q-p4-fCD"/>
-                            <constraint firstItem="mR1-Uj-oeX" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="soL-AL-8tG"/>
+                            <constraint firstItem="mR1-Uj-oeX" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="soL-AL-8tG"/>
                             <constraint firstItem="FEE-Cy-jDl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="wDV-pk-jXE"/>
                             <constraint firstItem="f8z-74-6xO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="xTo-Ar-B5z"/>
                             <constraint firstItem="aWB-T4-6FU" firstAttribute="top" secondItem="FEE-Cy-jDl" secondAttribute="bottom" constant="20" id="yls-eI-Bae"/>
