@@ -7,15 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		392E77DC21797BE50063D106 /* ViewController+ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392E77DB21797BE50063D106 /* ViewController+ImagePicker.swift */; };
 		39CC46E42178201100E1EC90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CC46E32178201100E1EC90 /* AppDelegate.swift */; };
 		39CC46E62178201100E1EC90 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CC46E52178201100E1EC90 /* ViewController.swift */; };
 		39CC46E92178201100E1EC90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39CC46E72178201100E1EC90 /* Main.storyboard */; };
 		39CC46EB2178201700E1EC90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39CC46EA2178201700E1EC90 /* Assets.xcassets */; };
 		39CC46EE2178201700E1EC90 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39CC46EC2178201700E1EC90 /* LaunchScreen.storyboard */; };
-		39CC46F72178308A00E1EC90 /* MemeTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CC46F62178308A00E1EC90 /* MemeTextView.swift */; };
+		39CC46F72178308A00E1EC90 /* MemeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CC46F62178308A00E1EC90 /* MemeTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		392E77DB21797BE50063D106 /* ViewController+ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+ImagePicker.swift"; sourceTree = "<group>"; };
 		39CC46E02178201100E1EC90 /* Meme.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meme.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39CC46E32178201100E1EC90 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		39CC46E52178201100E1EC90 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -23,7 +25,7 @@
 		39CC46EA2178201700E1EC90 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		39CC46ED2178201700E1EC90 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		39CC46EF2178201700E1EC90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		39CC46F62178308A00E1EC90 /* MemeTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeTextView.swift; sourceTree = "<group>"; };
+		39CC46F62178308A00E1EC90 /* MemeTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				39CC46F52178304100E1EC90 /* Support */,
 				39CC46E32178201100E1EC90 /* AppDelegate.swift */,
 				39CC46E52178201100E1EC90 /* ViewController.swift */,
+				392E77DB21797BE50063D106 /* ViewController+ImagePicker.swift */,
 				39CC46E72178201100E1EC90 /* Main.storyboard */,
 				39CC46EA2178201700E1EC90 /* Assets.xcassets */,
 				39CC46EC2178201700E1EC90 /* LaunchScreen.storyboard */,
@@ -70,7 +73,7 @@
 		39CC46F52178304100E1EC90 /* Support */ = {
 			isa = PBXGroup;
 			children = (
-				39CC46F62178308A00E1EC90 /* MemeTextView.swift */,
+				39CC46F62178308A00E1EC90 /* MemeTextField.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -146,8 +149,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				392E77DC21797BE50063D106 /* ViewController+ImagePicker.swift in Sources */,
 				39CC46E62178201100E1EC90 /* ViewController.swift in Sources */,
-				39CC46F72178308A00E1EC90 /* MemeTextView.swift in Sources */,
+				39CC46F72178308A00E1EC90 /* MemeTextField.swift in Sources */,
 				39CC46E42178201100E1EC90 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -300,7 +304,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = brunoalves.cc.Meme;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -317,7 +321,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = brunoalves.cc.Meme;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
