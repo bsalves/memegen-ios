@@ -60,6 +60,23 @@ class ViewController: UIViewController {
         unsubscribeFromKeyboardNotifications()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let barViewControllers = segue.destination as! UITabBarController
+        
+        guard let viewControllers = barViewControllers.viewControllers else { return }
+        
+        viewControllers.forEach { (navigationController) in
+            let navController = navigationController as! UINavigationController
+            let vc = navController.topViewController as! SavedMemesBaseViewController
+            vc.delegate = self
+            vc.memes = memes
+        }
+        
+    }
+    
+    
+    //MARK: Keyboard behavior
+    
     @objc func subscribeToKeyboardNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: .UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: .UIKeyboardWillHide, object: nil)
@@ -68,8 +85,6 @@ class ViewController: UIViewController {
     @objc func unsubscribeFromKeyboardNotifications() {
         NotificationCenter.default.removeObserver(self)
     }
-    
-    //MARK: Keyboard listeners
     
     func keyboardWillShow(_ notification: Notification) {
         view.frame.origin.y = -getKeyboardHeight(notification)
@@ -85,7 +100,6 @@ class ViewController: UIViewController {
         let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue // of CGRect
         return keyboardSize.cgRectValue.height
     }
-    
     
     @objc func dismissKeyboard() {
         view.endEditing(true)
@@ -146,6 +160,7 @@ class ViewController: UIViewController {
                 guard let topText = self.topText.text else { return }
                 guard let bottonText = self.bottonText.text else { return }
                 self.memes.append(Meme(topText: topText, bottomText: bottonText, memeImage: imageToShare, originalImage: originalImage))
+                self.performSegue(withIdentifier: "memes", sender: self)
             }
         }
         
@@ -153,10 +168,26 @@ class ViewController: UIViewController {
         self.present(activityViewController, animated: true, completion: nil)
     }
     
-    @IBAction func clear(_ sender: Any) {
+    func clear() {
         image.image = nil
         topText.text = nil
         bottonText.text = nil
     }
     
+    @IBAction func clear(_ sender: Any) {
+        performSegue(withIdentifier: "memes", sender: self)
+    }
+    
 }
+
+extension ViewController: SavedMemesDelegate {
+    func createNewMeme() {
+        self.clear()
+    }
+}
+
+
+
+
+
+
