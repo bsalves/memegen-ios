@@ -42,19 +42,16 @@ class SavedMemeCollectionViewController: SavedMemesBaseViewController {
 extension SavedMemeCollectionViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return memes?.count ?? 0
+        return MemesModel.shared.memes.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "meme", for: indexPath) as! SavedMemeCollectionViewCell
         
-        if let memes = self.memes {
-            let item = memes[indexPath.row]
-            cell.image.image = item.memeImage
-            return cell
-        }
-        return UICollectionViewCell()
+        let item = MemesModel.shared.memes[indexPath.row]
+        cell.image.image = item.memeImage
+        return cell
     }
     
 }

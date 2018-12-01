@@ -8,7 +8,15 @@
 
 import UIKit
 
+protocol NewMemeDelegate: class {
+    func didFinish(created meme: Meme)
+}
+
 class ViewController: UIViewController {
+    
+    // MARK: Property
+    
+    weak var delegate: NewMemeDelegate?
     
     //MARK: Outlets
 
@@ -59,21 +67,6 @@ class ViewController: UIViewController {
         super.viewWillDisappear(animated)
         unsubscribeFromKeyboardNotifications()
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let barViewControllers = segue.destination as! UITabBarController
-        
-        guard let viewControllers = barViewControllers.viewControllers else { return }
-        
-        viewControllers.forEach { (navigationController) in
-            let navController = navigationController as! UINavigationController
-            let vc = navController.topViewController as! SavedMemesBaseViewController
-            vc.delegate = self
-            vc.memes = memes
-        }
-        
-    }
-    
     
     //MARK: Keyboard behavior
     
@@ -159,8 +152,11 @@ class ViewController: UIViewController {
                 guard let originalImage = self.image.image else { return }
                 guard let topText = self.topText.text else { return }
                 guard let bottonText = self.bottonText.text else { return }
-                self.memes.append(Meme(topText: topText, bottomText: bottonText, memeImage: imageToShare, originalImage: originalImage))
-                self.performSegue(withIdentifier: "memes", sender: self)
+                
+                let meme = Meme(topText: topText, bottomText: bottonText, memeImage: imageToShare, originalImage: originalImage)
+                
+                self.delegate?.didFinish(created: meme)
+                self.dismiss(animated: true, completion: nil)
             }
         }
         
@@ -175,18 +171,11 @@ class ViewController: UIViewController {
     }
     
     @IBAction func clear(_ sender: Any) {
-        performSegue(withIdentifier: "memes", sender: self)
+        clear()
+        dismiss(animated: true, completion: nil)
     }
     
 }
-
-extension ViewController: SavedMemesDelegate {
-    func createNewMeme() {
-        self.clear()
-    }
-}
-
-
 
 
 

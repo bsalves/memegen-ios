@@ -9,7 +9,7 @@
 import UIKit
 
 class SavedMemesTableViewController: SavedMemesBaseViewController {
-
+    
     // MARK: Outlets
     
     @IBOutlet weak var tableView: UITableView!
@@ -25,12 +25,22 @@ class SavedMemesTableViewController: SavedMemesBaseViewController {
         super.viewWillAppear(animated)
         tableView.reloadData()
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! SavedMemeViewController
+        vc.meme = selectedMeme
+    }
 }
 
 extension SavedMemesTableViewController: UITableViewDelegate, UITableViewDataSource {
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedMeme = MemesModel.shared.memes[indexPath.row]
+        performSegue(withIdentifier: "memeDetail", sender: self)
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return memes?.count ?? 0
+        return MemesModel.shared.memes.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -40,13 +50,11 @@ extension SavedMemesTableViewController: UITableViewDelegate, UITableViewDataSou
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "meme") as! SavedMemeTableViewCell
         
-        if let memes = self.memes {
-            let item = memes[indexPath.row]
-            cell.memeImage.image = item.memeImage
-            cell.title.text = "\(item.topText) \(item.bottomText)"
-            return cell
-        }
-        return UITableViewCell()
+        let item = MemesModel.shared.memes[indexPath.row]
+        cell.memeImage.image = item.memeImage
+        cell.title.text = "\(item.topText) \(item.bottomText)"
+        return cell
+    
     }
     
 }

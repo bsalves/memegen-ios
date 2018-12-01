@@ -8,15 +8,9 @@
 
 import UIKit
 
-protocol SavedMemesDelegate: class {
-    func createNewMeme()
-}
-
 class SavedMemesBaseViewController: UIViewController {
     
-    weak var delegate: SavedMemesDelegate?
-    
-    var memes: [Meme]?
+    var selectedMeme: Meme?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +18,15 @@ class SavedMemesBaseViewController: UIViewController {
     }
     
     @objc func createNewMeme(sender: Any?) {
-        delegate?.createNewMeme()
-        dismiss(animated: true, completion: nil)
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "NewMeme") as! ViewController
+        newViewController.delegate = self
+        self.present(newViewController, animated: true, completion: nil)
+    }
+}
+
+extension SavedMemesBaseViewController: NewMemeDelegate {
+    func didFinish(created meme: Meme) {
+        MemesModel.shared.memes.append(meme)
     }
 }

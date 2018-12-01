@@ -15,6 +15,8 @@
 		39A576C121B31CF000CB2849 /* SavedMemesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A576C021B31CF000CB2849 /* SavedMemesTableViewController.swift */; };
 		39A576C321B325CE00CB2849 /* SavedMemeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A576C221B325CE00CB2849 /* SavedMemeCollectionViewCell.swift */; };
 		39A576C521B327D700CB2849 /* SavedMemeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A576C421B327D700CB2849 /* SavedMemeTableViewCell.swift */; };
+		39A576C721B32F6700CB2849 /* SavedMemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A576C621B32F6700CB2849 /* SavedMemeViewController.swift */; };
+		39A576C921B33E2700CB2849 /* MemesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A576C821B33E2700CB2849 /* MemesModel.swift */; };
 		39CC46E42178201100E1EC90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CC46E32178201100E1EC90 /* AppDelegate.swift */; };
 		39CC46E62178201100E1EC90 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CC46E52178201100E1EC90 /* ViewController.swift */; };
 		39CC46E92178201100E1EC90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39CC46E72178201100E1EC90 /* Main.storyboard */; };
@@ -31,6 +33,8 @@
 		39A576C021B31CF000CB2849 /* SavedMemesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedMemesTableViewController.swift; sourceTree = "<group>"; };
 		39A576C221B325CE00CB2849 /* SavedMemeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedMemeCollectionViewCell.swift; sourceTree = "<group>"; };
 		39A576C421B327D700CB2849 /* SavedMemeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedMemeTableViewCell.swift; sourceTree = "<group>"; };
+		39A576C621B32F6700CB2849 /* SavedMemeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedMemeViewController.swift; sourceTree = "<group>"; };
+		39A576C821B33E2700CB2849 /* MemesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemesModel.swift; sourceTree = "<group>"; };
 		39CC46E02178201100E1EC90 /* Meme.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meme.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39CC46E32178201100E1EC90 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		39CC46E52178201100E1EC90 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +63,7 @@
 				39A576C021B31CF000CB2849 /* SavedMemesTableViewController.swift */,
 				39A576C221B325CE00CB2849 /* SavedMemeCollectionViewCell.swift */,
 				39A576C421B327D700CB2849 /* SavedMemeTableViewCell.swift */,
+				39A576C621B32F6700CB2849 /* SavedMemeViewController.swift */,
 			);
 			path = SavedMeme;
 			sourceTree = "<group>";
@@ -92,6 +97,7 @@
 				39CC46EC2178201700E1EC90 /* LaunchScreen.storyboard */,
 				39CC46EF2178201700E1EC90 /* Info.plist */,
 				395344A8219B955B007F7041 /* MemeModel.swift */,
+				39A576C821B33E2700CB2849 /* MemesModel.swift */,
 			);
 			path = Meme;
 			sourceTree = "<group>";
@@ -170,7 +176,9 @@
 				39A576BD21B317AE00CB2849 /* SavedMemesBaseViewController.swift in Sources */,
 				39A576BF21B31B1E00CB2849 /* SavedMemeCollectionViewController.swift in Sources */,
 				395344A7219B925F007F7041 /* ViewController+UITextField.swift in Sources */,
+				39A576C921B33E2700CB2849 /* MemesModel.swift in Sources */,
 				392E77DC21797BE50063D106 /* ViewController+ImagePicker.swift in Sources */,
+				39A576C721B32F6700CB2849 /* SavedMemeViewController.swift in Sources */,
 				39A576C321B325CE00CB2849 /* SavedMemeCollectionViewCell.swift in Sources */,
 				39A576C521B327D700CB2849 /* SavedMemeTableViewCell.swift in Sources */,
 				39CC46E62178201100E1EC90 /* ViewController.swift in Sources */,
