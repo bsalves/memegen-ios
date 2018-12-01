@@ -156,7 +156,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DQk-Xl-qWv"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Sent Memes" largeTitleDisplayMode="always" id="LoI-An-bLj"/>
+                    <navigationItem key="navigationItem" title="Sent Memes" id="LoI-An-bLj"/>
                     <connections>
                         <outlet property="collectionView" destination="IhD-2f-UYs" id="BD4-d4-cfP"/>
                         <segue destination="j1B-jf-CUK" kind="show" identifier="memeDetail" id="GUw-cy-aAA"/>
@@ -257,7 +257,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="AP4-ug-EVA"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Sent Memes" largeTitleDisplayMode="always" id="giW-Lw-SAr"/>
+                    <navigationItem key="navigationItem" title="Sent Memes" id="giW-Lw-SAr"/>
                     <connections>
                         <outlet property="tableView" destination="pYf-6s-scv" id="3vA-rp-owN"/>
                         <segue destination="j1B-jf-CUK" kind="show" identifier="memeDetail" id="6bX-At-nMs"/>
@@ -286,11 +286,11 @@
             </objects>
             <point key="canvasLocation" x="740" y="29"/>
         </scene>
-        <!--Linhas-->
+        <!--Table-->
         <scene sceneID="2c8-NO-JxC">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0SH-NQ-w6K" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Linhas" id="v5d-Fq-s6u"/>
+                    <tabBarItem key="tabBarItem" title="Table" image="table_30x30" id="v5d-Fq-s6u"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zby-7y-dhh">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -305,11 +305,11 @@
             </objects>
             <point key="canvasLocation" x="1756" y="-299"/>
         </scene>
-        <!--Colunas-->
+        <!--Collection-->
         <scene sceneID="hfn-JA-OJC">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="s8m-Sw-mru" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Colunas" id="FXw-RU-sy3"/>
+                    <tabBarItem key="tabBarItem" title="Collection" image="collection_30x30" id="FXw-RU-sy3"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="FZi-Ks-cO8">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -325,7 +325,11 @@
             <point key="canvasLocation" x="1756" y="355"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="collection_30x30" width="30" height="30"/>
+        <image name="table_30x30" width="30" height="30"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="6bX-At-nMs"/>
+        <segue reference="GUw-cy-aAA"/>
     </inferredMetricsTieBreakers>
 </document>

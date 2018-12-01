@@ -37,12 +37,22 @@ class SavedMemeCollectionViewController: SavedMemesBaseViewController {
         layout.minimumLineSpacing = 0
         collectionView!.collectionViewLayout = layout
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! SavedMemeViewController
+        vc.meme = selectedMeme
+    }
 }
 
 extension SavedMemeCollectionViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return MemesModel.shared.memes.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectedMeme = MemesModel.shared.memes[indexPath.row]
+        performSegue(withIdentifier: "memeDetail", sender: self)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
